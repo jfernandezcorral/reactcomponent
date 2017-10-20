@@ -1,0 +1,33 @@
+.li{
+	padding: 5px 15px;
+	border-bottom: 1px solid #eee;
+	background-color: #fff;
+	color: #555;
+	cursor: pointer;
+	transition: background-color .3s ease-out;
+	&:hover{
+		background-color: #e0e0e0;
+	}
+}
+.t {
+	position : fixed;
+	border-radius: 3px;
+	box-shadow: 2px 7px 5px #888;
+	border: 1px solid #aaa;
+	background-color: #e5e5e5;
+	padding: 3px;
+	transform: translate3D(0,0,0);
+	animation: tr .3s ease-in-out;
+	transition: opacity .3s ease-in-out;
+	opacity: 1;
+}
+@keyframes tr{
+	0%{
+		opacity: 0
+	}
+	100%{
+		opacity: 1
+	}
+
+}
+

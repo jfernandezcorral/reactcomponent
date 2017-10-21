@@ -17,7 +17,7 @@ let config = {
         'react': 'react',
         'react-dom': 'react-dom'
   },
-  //devtool: 'source-map',
+  devtool: 'source-map',
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
@@ -42,7 +42,7 @@ let config = {
 module.exports = config
 if (process.env.NODE_ENV === 'production') {
   console.log('compilación producción')
-  module.exports.plugins.push(
+  /*module.exports.plugins.push(
     new webpack.optimize.UglifyJsPlugin() // call the uglify plugin
-  );
+  );*/
 }

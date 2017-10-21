@@ -17,7 +17,7 @@ let config = {
         'react': 'react',
         'react-dom': 'react-dom'
   },
-  devtool: 'source-map',
+  //devtool: 'source-map',
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },

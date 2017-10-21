@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 let config = {
-  entry: ['./client/index2.js'],
+  entry: ['./client/index-component.js'],
   output: {
     path: path.resolve(__dirname,'./lib'),
     libraryTarget: 'umd',
@@ -17,7 +17,7 @@ let config = {
         'react': 'react',
         'react-dom': 'react-dom'
   },
-  devtool: 'source-map',
+  //devtool: 'source-map',
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },

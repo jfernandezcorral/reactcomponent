@@ -34,6 +34,10 @@ let config = {
             {loader:'style-loader'},
             {loader: 'css-loader', options: {modules: true, localIdentName: '[name]__[local]___[hash:base64:5]', sourceMap: true}}
           ]
+      },
+      {
+        test: /\.(woff|png|gif)$/,
+        loader: 'url-loader',
       }
     ]
   },

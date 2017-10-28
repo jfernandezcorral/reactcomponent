@@ -1,4 +1,16 @@
 @import 'constantes.scss';
+@font-face{
+	font-family: "bankia-icons-webfont";
+	src: url('./fonts/bankia-icons-webfont-woff.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: "bankia";
+	src: url('./fonts/bankia-regular-webfont-woff.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,4 +63,4 @@ table {
 html, body {
 	height: 100%;
 }
-body {background-color: $back;}
+body {background-color: $back;font-family: 'bankia';}

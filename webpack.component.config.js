@@ -4,6 +4,8 @@ let config = {
   entry: ['./client/index-component.js'],
   output: {
     path: path.resolve(__dirname,'./lib'),
+    library: 'reactcomponent',
+    umdNamedDefine: true,
     libraryTarget: 'umd',
     filename: 'index.js'
   },

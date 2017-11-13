@@ -16,8 +16,18 @@ let config = {
     }
   },
   externals : {
-        'react': 'react',
-        'react-dom': 'react-dom'
+    react : {
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react",
+      root: "React"
+    },
+    'react-dom' : {
+      commonjs2: "react-dom",
+      commonjs: "react-dom",
+      amd: "react-dom",
+      root: "ReactDOM"
+    }
   },
   devtool: 'source-map',
   module: {

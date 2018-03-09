@@ -2,6 +2,7 @@ import React from 'react';
 import estilos from'./App.scss';
 import {modal} from 'cmp/base/modal'
 import {menu} from 'cmp/base/menu'
+import pdf from 'cmp/base/pdf'
 //import {modal, menu} from 'reactcomponent'
 export default class App extends React.Component {
     constructor(props) {
@@ -10,14 +11,16 @@ export default class App extends React.Component {
         this.handleimg = this.handleimg.bind(this)
     }
     handle(e){
-        const diag = <div style={{width: '500px'}}>
+        pdf.view2("/api/1.0/sap/commons/transmission/get/iplusget/generica/A125330_17000010000104________552018-03-0814.09.2565470584/00001/00001/001/1." + 
+        '?x-j_gid_cod_app=e2&filename=a.pdf')
+        /*const diag = <div style={{width: '500px'}}>
             <h1>Se va a enviar el formulario al servidor</h1>
             <div style={{display: 'flex'}}>
                 <button onClick={()=>{console.log('hola');this.cerrar()}}>Aceptar</button>
                 <button onClick={()=>this.cerrar()}>Cancelar</button>
             </div>
         </div>
-       this.cerrar = modal(diag)
+       this.cerrar = modal(diag)*/
     }
     handleimg(e){
         menu([

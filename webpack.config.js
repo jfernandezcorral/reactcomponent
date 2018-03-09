@@ -16,6 +16,19 @@ let config = {
     filename: 'index_bundle.js'
   },
   devServer: {
+    proxy: {
+      '/tabit':{
+        target: "http://tabit-epd.cm.es/api/1.0/sap/tabit/",
+        pathRewrite: {"^/tabit" : ""}
+      },
+      '/api': {
+        target: "http://iob.ms.epd.bankia.int:41180",
+      },
+      '/tas':{
+        target: "http://tasap-epd.ms.bankia.int:8080/",
+        pathRewrite: {"^/tas" : ""}
+      }
+    },
     host: "0.0.0.0"
   },
   resolve: {

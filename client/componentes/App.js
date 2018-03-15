@@ -11,8 +11,8 @@ export default class App extends React.Component {
         this.handleimg = this.handleimg.bind(this)
     }
     handle(e){
-        pdf.view2("/api/1.0/sap/commons/transmission/get/iplusget/generica/A125330_17000010000104________552018-03-0814.09.2565470584/00001/00001/001/1." + 
-        '?x-j_gid_cod_app=e2&filename=a.pdf')
+        pdf.view2("/api/1.0/sap/commons/transmission/get/iplusget/generica/A125330_17000010000104________552018-03-1512.23.0865715612/00001/00001/001/1." + 
+        '?x-j_gid_cod_app=e2&filename=a.pdf').then(m=>console.log(m)).catch(e=>console.log(e))
         /*const diag = <div style={{width: '500px'}}>
             <h1>Se va a enviar el formulario al servidor</h1>
             <div style={{display: 'flex'}}>

@@ -19,25 +19,6 @@ const get = (url)=>{
 		xhr.send();
 	})
 }
-const post = (url, data)=>{
-    return new Promise((resolve, reject)=>{
-		const xhr = new XMLHttpRequest()
-		xhr.open('POST', url, true)
-		xhr.responseType = 'blob'
-		xhr.setRequestHeader('x-j_gid_cod_app','e2')
-		xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-		xhr.onload = function(e) {
-		  if (this.status == 200) {
-			const blob = new Blob([this.response], {type: 'application/pdf'})
-			resolve(window.URL.createObjectURL(blob))
-		  }
-		  else{
-			  reject(this)
-		  }
-		}
-		xhr.send(JSON.stringify(data));
-	})
-}
 const view = url => {
 	const body = document.getElementsByTagName('body')[0]
 	const div = document.createElement("div")
@@ -70,17 +51,15 @@ const view = url => {
 	}
 	return cerrar
 }
-const view2 = (url, data) => {
-	if (data){
-		post(url, data).then(burl=>{
+const view2 = (url) => {
+	return new Promise((resolve, reject)=>{
+		return get(url)
+		.then(burl=>{
 			view(burl)
+			resolve("ok")
+			setTimeout(()=>URL.revokeObjectURL(burl), 10000)
 		})
-	}
-	else{
-		get(url).then(burl=>{
-			view(burl)
-		})
-	}
-
+		.catch(()=>reject("Error mostrando documento"))
+	})
 }
 export default {view, view2}

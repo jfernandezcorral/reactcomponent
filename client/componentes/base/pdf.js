@@ -1,6 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import estilo from './pdf.scss'
+const check = blob=>{
+	return new Promise((resolve, reject)=>{
+		const fr = new FileReader()
+		fr.addEventListener('loadend',(e)=>{
+			if (e && e.srcElement && e.srcElement.result && e.srcElement.result.indexOf("%PDF")==0){
+				resolve('')
+			}
+			else{
+				reject('')
+			}
+		})
+		fr.readAsText(blob)
+	})
+}
 const get = (url)=>{
 	return new Promise((resolve, reject)=>{
 		const xhr = new XMLHttpRequest()
@@ -10,7 +24,8 @@ const get = (url)=>{
 		xhr.onload = function(e) {
 		  if (this.status == 200) {
 			const blob = new Blob([this.response], {type: 'application/pdf'})
-			resolve(window.URL.createObjectURL(blob))
+			check(blob).then(()=>resolve(window.URL.createObjectURL(blob)))
+			.catch(()=>reject('Formato incorrecto'))
 		  }
 		  else{
 			  reject(this)
